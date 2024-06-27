@@ -1,0 +1,17 @@
+D:\workspace\c#\gatewatApi\gatewatApi\bin\Debug\net8.0\gatewatApi.exe
+D:\workspace\c#\gatewatApi\gatewatApi\bin\Debug\net8.0\gatewatApi.deps.json
+D:\workspace\c#\gatewatApi\gatewatApi\bin\Debug\net8.0\gatewatApi.runtimeconfig.json
+D:\workspace\c#\gatewatApi\gatewatApi\bin\Debug\net8.0\gatewatApi.dll
+D:\workspace\c#\gatewatApi\gatewatApi\bin\Debug\net8.0\gatewatApi.pdb
+D:\workspace\c#\gatewatApi\gatewatApi\obj\Debug\net8.0\gatewatApi.GeneratedMSBuildEditorConfig.editorconfig
+D:\workspace\c#\gatewatApi\gatewatApi\obj\Debug\net8.0\gatewatApi.AssemblyInfoInputs.cache
+D:\workspace\c#\gatewatApi\gatewatApi\obj\Debug\net8.0\gatewatApi.AssemblyInfo.cs
+D:\workspace\c#\gatewatApi\gatewatApi\obj\Debug\net8.0\gatewatApi.csproj.CoreCompileInputs.cache
+D:\workspace\c#\gatewatApi\gatewatApi\obj\Debug\net8.0\gatewatApi.dll
+D:\workspace\c#\gatewatApi\gatewatApi\obj\Debug\net8.0\refint\gatewatApi.dll
+D:\workspace\c#\gatewatApi\gatewatApi\obj\Debug\net8.0\gatewatApi.pdb
+D:\workspace\c#\gatewatApi\gatewatApi\obj\Debug\net8.0\gatewatApi.genruntimeconfig.cache
+D:\workspace\c#\gatewatApi\gatewatApi\obj\Debug\net8.0\ref\gatewatApi.dll
+D:\workspace\c#\gatewatApi\gatewatApi\bin\Debug\net8.0\Newtonsoft.Json.dll
+D:\workspace\c#\gatewatApi\gatewatApi\obj\Debug\net8.0\gatewatApi.csproj.AssemblyReference.cache
+D:\workspace\c#\gatewatApi\gatewatApi\obj\Debug\net8.0\gatewatApi.csproj.Up2Date
