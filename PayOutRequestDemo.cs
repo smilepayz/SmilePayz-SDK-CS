@@ -18,10 +18,10 @@ public class PayOutRequestDemo
 
         MoneyRequest moneyRequest = new MoneyRequest();
         moneyRequest.amount = 200;
-        moneyRequest.currency = "INR";
+        moneyRequest.currency = CurrencyEnum.INR.ToString();
 
         MerchantRequest merchantRequest = new MerchantRequest();
-        merchantRequest.merchantId = sandboxMerchanteId;
+        merchantRequest.merchantId = merchanteId;
         
         TradeAdditionalReq additionalReq = new TradeAdditionalReq();
         additionalReq.ifscCode = "YESB0000097";
@@ -31,7 +31,7 @@ public class PayOutRequestDemo
         payOutRequest.merchant = merchantRequest;
         payOutRequest.money = moneyRequest;
         payOutRequest.paymentMethod = "YES";
-        payOutRequest.area = 12;
+        payOutRequest.area = AreaEnum.INDIA.Code;
         payOutRequest.purpose = "for test";
         payOutRequest.additionalParam = additionalReq;
         payOutRequest.orderNo = Guid.NewGuid().ToString("N");
@@ -45,9 +45,9 @@ public class PayOutRequestDemo
         string  minify = Newtonsoft.Json.JsonConvert.SerializeObject(payOutRequest);
         Console.WriteLine("minify:" + minify);
 
-        string signContent = $"{referenceId}|{timestamp}|{sandboxMerchanteCode}|{minify}";
+        string signContent = $"{referenceId}|{timestamp}|{merchanteCode}|{minify}";
 
-        var signature = SignatureUtils.CreateTokenSignature(signContent, privateKeyStr);
+        var signature = SignatureUtils.sha256RsaSignature(signContent, privateKeyStr);
         using (HttpClient client = new HttpClient())
         {
             // 添加自定义标头
@@ -55,14 +55,14 @@ public class PayOutRequestDemo
             client.DefaultRequestHeaders.Add("X-TIMESTAMP", timestamp);
             client.DefaultRequestHeaders.Add("X-SIGNATURE", signature);
             client.DefaultRequestHeaders.Add("REFERENCE-ID", referenceId);
-            client.DefaultRequestHeaders.Add("X-PARTNER-ID", sandboxMerchanteId);
+            client.DefaultRequestHeaders.Add("X-PARTNER-ID", merchanteId);
             StringContent content = new StringContent(minify, Encoding.UTF8, "application/json");
 
             Console.WriteLine("content:" + Newtonsoft.Json.JsonConvert.SerializeObject(content));
 
             // 发起 POST 请求
             HttpResponseMessage response =
-                await client.PostAsync(payinPathTestUrl, content);
+                await client.PostAsync(payinPathUrl, content);
 
             // 检查响应是否成功
             if (response.IsSuccessStatusCode)

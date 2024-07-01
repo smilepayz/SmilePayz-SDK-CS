@@ -11,7 +11,7 @@ class Program
         string publicKeyStr = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA3DSUm/AEx8PVobo7JT3hW1I/ZHo/eXTHl1feo1HZ8kR3OpDlQJOOg/Ah1sT/+vXZjJCuwLJkoLbsTc5j7ohUOMV3ibIlCBYcxsL0UP2BjDdHhsZVNWDLGdilNSO4j/mF14DaRflViRLdKRna2GL+pD8gfFyqFFhEDC3uXLZr3cJ0iZ8DhQ1WxY4Sd4EvPsXujVJxtHlCsu4jGnIoNVxUrihbfk6GDrbSUdghS77cCOAnGmo9NMAU4EeqPKfYu1XrKeWt7XC+rCXhWB8cQt0H4Vc9PIUztJh8fkX1PkdCR9WJP5ilTqiRjxFE6rimX42H7dmPFiTi5d862ZtZcIDXKQIDAQAB";
         string stringToSign = "sandbox-20055|2024-06-25T17:32:38+00:00";
         
-        string signature = SignatureUtils.CreateTokenSignature(stringToSign, privateKeyStr);
+        string signature = SignatureUtils.sha256RsaSignature(stringToSign, privateKeyStr);
         if (signature != null)
         {
             Console.WriteLine("Signature: " + signature);
@@ -20,12 +20,7 @@ class Program
         {
             Console.WriteLine("Failed to create signature.");
         }
-
-        var doCheck = SignatureUtils.DoCheckTokenSignature(stringToSign, signature, publicKeyStr, "UTF-8");
+        var doCheck = SignatureUtils.checkSha256ResSiganture(stringToSign, signature, publicKeyStr, "UTF-8");
         Console.WriteLine("Check result: "+ doCheck);
-
-        string json = "{\"paymentMethod\":\"W_OVO\",\"orderNo\":\"T_1719391818087\",\"purpose\":\"Purpose For Transaction from Java SDK\",\"productDetail\":\"Product details\",\"additionalParam\":{\"payerAccountNo\":\"34324234234234\"},\"itemDetailList\":[{\"name\":\"mac A1\",\"quantity\":1,\"price\":10000}],\"billingAddress\":{\"address\":\"Jl. Pluit Karang Ayu 1 No.B1 Pluit\",\"city\":\"jakarta\",\"postalCode\":\"14450\",\"phone\":\"018922990\",\"countryCode\":\"INDONESIA\"},\"shippingAddress\":{\"address\":\"Jl. Pluit Karang Ayu 1 No.B1 Pluit\",\"city\":\"jakarta\",\"postalCode\":\"14450\",\"phone\":\"018922990\",\"countryCode\":\"INDONESIA\"},\"money\":{\"currency\":\"IDR\",\"amount\":10000},\"merchant\":{\"merchantId\":\"20031\"},\"area\":10}";
-        var sha256ByteToHex = SignatureUtils.SHA256ByteToHex(json);
-        Console.WriteLine("sha256 result: "+  sha256ByteToHex);
     }
 }

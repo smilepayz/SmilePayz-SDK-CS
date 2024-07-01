@@ -1,0 +1,135 @@
+# Ignore Visual Studio temporary files, build results, and
+# build directories.
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# Visual Studio 2019
+.vs/
+.vscode/
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Auto-generated files
+*.Designer.cs
+*.g.cs
+*.g.i.cs
+*.gen.cs
+*.dll
+*.exe
+*.app
+*.appx
+*.appxupload
+*.builds
+*.bundle
+*.crd
+*.json
+*.lock.json
+*.lock
+*.osdx
+*.pri
+*.shfbproj
+*.swp
+*.swf
+*.temp
+*.tmp
+*.ts
+*.tss
+*.vsix
+*.vstemplate
+*.vscode
+*.xml
+*.zip
+*.log
+*.nupkg
+*.snk
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# VS Code directories
+.vscode/
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# MSTest test Results
+[Tt]est[Rr]esult*
+[Bb]uild[Ll]og.*
+
+# NUNIT
+*.VisualState.xml
+TestResult.xml
+
+# Build Results of an Android project
+*.apk
+*.ap_
+
+# Java
+*.class
+*.war
+*.ear
+
+# Python
+*.pyc
+*.pyo
+*.pyd
+__pycache__
+
+# Web
+*.publish.xml
+*.azureActivityLog
+
+# Exclude Rider's project files
+.idea/
+*.sln.iml
+
+# DotNet specific
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# NuGet
+*.nupkg
+packages/
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+# JetBrains Rider
+.idea/
+*.sln.iml
+
+# Rider and Resharper files
+_ReSharper*/
+*.[Rr]e[Ss]harper

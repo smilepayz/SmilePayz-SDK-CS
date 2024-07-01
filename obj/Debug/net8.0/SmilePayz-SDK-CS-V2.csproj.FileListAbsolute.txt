@@ -15,3 +15,4 @@ D:\workspace\c#\gatewatApi\SmilePayz-SDK-CS-V2\obj\Debug\net8.0\refint\SmilePayz
 D:\workspace\c#\gatewatApi\SmilePayz-SDK-CS-V2\obj\Debug\net8.0\SmilePayz-SDK-CS-V2.pdb
 D:\workspace\c#\gatewatApi\SmilePayz-SDK-CS-V2\obj\Debug\net8.0\SmilePayz-SDK-CS-V2.genruntimeconfig.cache
 D:\workspace\c#\gatewatApi\SmilePayz-SDK-CS-V2\obj\Debug\net8.0\ref\SmilePayz-SDK-CS-V2.dll
+D:\workspace\c#\gatewatApi\SmilePayz-SDK-CS-V2\obj\Debug\net8.0\SmilePayz-SDK-CS-V2.sourcelink.json

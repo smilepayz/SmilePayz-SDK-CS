@@ -19,7 +19,7 @@ public class PayInRequestDemo
 
         MoneyRequest moneyRequest = new MoneyRequest();
         moneyRequest.amount = 10000;
-        moneyRequest.currency = "IDR";
+        moneyRequest.currency = CurrencyEnum.IDR.ToString();
 
         MerchantRequest merchantRequest = new MerchantRequest();
         merchantRequest.merchantId = merchanteId;
@@ -28,7 +28,7 @@ public class PayInRequestDemo
         payInRequest.merchant = merchantRequest;
         payInRequest.money = moneyRequest;
         payInRequest.paymentMethod = "W_DANA";
-        payInRequest.area = 10;
+        payInRequest.area = AreaEnum.INDONESIA.Code;
         payInRequest.purpose = "for test";
 
         payInRequest.orderNo = Guid.NewGuid().ToString("N");
@@ -44,7 +44,7 @@ public class PayInRequestDemo
 
         string signContent = $"{referenceId}|{timestamp}|{merchanteCode}|{minify}";
 
-        var signature = SignatureUtils.CreateTokenSignature(signContent, privateKeyStr);
+        var signature = SignatureUtils.sha256RsaSignature(signContent, privateKeyStr);
         using (HttpClient client = new HttpClient())
         {
             // 添加自定义标头

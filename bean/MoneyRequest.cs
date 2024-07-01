@@ -3,18 +3,11 @@
 public class MoneyRequest
 {
 
-    public string currency{
-        get ;
-        set ;
-    }
+    // INR IDR BRL THB 
+    public string currency{ get ; set ; }
 
-    public int amount {
-        get ;
-        set ;
-    }
+    public int amount { get ; set ; }
 
-    public MoneyRequest()
-    {
-    }
+    public MoneyRequest() { }
     
 }

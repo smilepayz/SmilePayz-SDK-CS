@@ -5,7 +5,7 @@ using System.Text;
 
 public class SignatureUtils
 {
-    public static string CreateTokenSignature(string stringToSign, string privateKeyStr)
+    public static string sha256RsaSignature(string stringToSign, string privateKeyStr)
     {
         try
         {
@@ -25,7 +25,7 @@ public class SignatureUtils
         return null;
     }
     
-    public static bool DoCheckTokenSignature(string content, string signed, string publicKeyStr, string encode)
+    public static bool checkSha256ResSiganture(string content, string signed, string publicKeyStr, string encode)
     {
         try
         {

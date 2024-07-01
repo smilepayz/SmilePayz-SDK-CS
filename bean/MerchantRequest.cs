@@ -2,18 +2,12 @@
 
 public class MerchantRequest
 {
-    public string merchantId{
-        get ;
-        set ;
-    }
+    public string merchantId{ get ; set ; }
 
     /**
      * merchantName
      */
-    public string merchantName{
-        get ;
-        set ;
-    }
+    public string merchantName{ get ; set ; }
     
     
 }
