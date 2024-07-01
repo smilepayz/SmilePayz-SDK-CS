@@ -7,7 +7,9 @@ class Program
     static async Task Main(string[] args)
     {
         // await PayInRequestDemo.PayInDemo();
+        // await BalanceInquiryDemo.InquiryDemo();
+        await OrderStatusInquiryDemo.InquiryDemo();
         // await PayOutRequestDemo.PayOutDemo();
-        SignatureUtils.SignatureDemo();
+        // SignatureUtils.SignatureDemo();
     }
 }

@@ -35,17 +35,14 @@ public class PayInRequestDemo
         payInRequest.purpose = "for test";
 
         payInRequest.orderNo = Guid.NewGuid().ToString("N");
-        string referenceId = Guid.NewGuid().ToString("N");
-
-
-
+        
         string payinPathUrl = "https://gateway-test.smilepayz.com/v2.0/transaction/pay-in";
         string payinPathTestUrl = "https://sandbox-gateway-test.smilepayz.com/v2.0/transaction/pay-in";
         // 准备要发送的数据
         string  minify = Newtonsoft.Json.JsonConvert.SerializeObject(payInRequest);
         Console.WriteLine("minify:" + minify);
 
-        string signContent = $"{referenceId}|{timestamp}|{merchanteCode}|{minify}";
+        string signContent = $"{timestamp}|{merchanteCode}|{minify}";
 
         var signature = SignatureUtils.sha256RsaSignature(signContent, privateKeyStr);
         using (HttpClient client = new HttpClient())
@@ -54,7 +51,6 @@ public class PayInRequestDemo
             client.DefaultRequestHeaders.Add("ContentType", "application/json");
             client.DefaultRequestHeaders.Add("X-TIMESTAMP", timestamp);
             client.DefaultRequestHeaders.Add("X-SIGNATURE", signature);
-            client.DefaultRequestHeaders.Add("REFERENCE-ID", referenceId);
             client.DefaultRequestHeaders.Add("X-PARTNER-ID", merchanteId);
             StringContent content = new StringContent(minify, Encoding.UTF8, "application/json");
 
