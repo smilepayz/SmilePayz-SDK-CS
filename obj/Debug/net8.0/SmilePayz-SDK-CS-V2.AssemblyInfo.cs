@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SmilePayz-SDK-CS-V2")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e3f03aaee55549cb203555d926391640f173f15d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0338496342fd05ab05059b558909789c21193212")]
 [assembly: System.Reflection.AssemblyProductAttribute("SmilePayz-SDK-CS-V2")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SmilePayz-SDK-CS-V2")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
