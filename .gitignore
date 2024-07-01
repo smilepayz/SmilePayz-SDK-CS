@@ -7,11 +7,13 @@ x86/
 [Aa][Rr][Mm]/
 [Aa][Rr][Mm]64/
 bld/
-[Bb]in/
-[Oo]bj/
-[Ll]og/
-[Ll]ogs/
+[Bb]in/**
+[Oo]bj/**
+[Ll]og/**
+[Ll]ogs/**
 
+bin/**
+obj/**
 # Visual Studio 2019
 .vs/
 .vscode/
