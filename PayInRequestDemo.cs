@@ -36,8 +36,8 @@ public class PayInRequestDemo
 
 
 
-        string payinPathUrl = "https://gateway-test.smilepayz.com/v2.0/transaction/pay-in";
-        string payinPathTestUrl = "https://sandbox-gateway-test.smilepayz.com/v2.0/transaction/pay-in";
+        string payinPathUrl = "https://gateway.smilepayz.com/v2.0/transaction/pay-in";
+        string payinPathTestUrl = "https://sandbox-gateway.smilepayz.com/v2.0/transaction/pay-in";
         // 准备要发送的数据
         string  minify = Newtonsoft.Json.JsonConvert.SerializeObject(payInRequest);
         Console.WriteLine("minify:" + minify);
