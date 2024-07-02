@@ -2,6 +2,7 @@
 
 public class OrderStatusInquiryRequest
 {
-    public string tradeType;
-    public string orderNo;
+    public string tradeType{ get ; set ; }
+    public string tradeNo{ get ; set ; }
+    public string orderNo{ get ; set ; }
 }

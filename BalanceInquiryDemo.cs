@@ -17,7 +17,7 @@ public class BalanceInquiryDemo
         Console.WriteLine("timestamp:" + timestamp);
 
         BalanceInquiryRequest balanceInquiryRequest = new BalanceInquiryRequest();
-        balanceInquiryRequest.accountNo = "11120018202402261804";
+        balanceInquiryRequest.accountNo = "21220030202403071031";
         balanceInquiryRequest.balanceTypes = ["balance"];
         balanceInquiryRequest.partnerReferenceNo = Guid.NewGuid().ToString("N");
         
