@@ -97,7 +97,7 @@ public class SignatureUtils
 
     public static void SignatureDemo()
     {
-        string merchanteCode = "95b57c46b8c2e068982be23fb669a80612cad68e6ce6ba4f5af9ec20d23bb274";
+        string merchant_secret = "95b57c46b8c2e068982be23fb669a80612cad68e6ce6ba4f5af9ec20d23bb274";
         DateTime date = DateTime.Now;
         string timestamp = date.ToString("yyyy-MM-dd'T'HH:mm:sszzz");
         
@@ -119,7 +119,7 @@ public class SignatureUtils
 
         string minifyString = minify(payInRequest);
         
-        string signContent = $"|{timestamp}|{merchanteCode}|{minifyString}";
+        string signContent = $"|{timestamp}|{merchant_secret}|{minifyString}";
         Console.WriteLine("signContent:" + signContent);
 
         string rsaSignature = sha256RsaSignature(signContent, privateKeyStr);
