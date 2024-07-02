@@ -8,8 +8,8 @@ class Program
     {
         // await PayInRequestDemo.PayInDemo();
         // await BalanceInquiryDemo.InquiryDemo();
-        await OrderStatusInquiryDemo.InquiryDemo();
+        // await OrderStatusInquiryDemo.InquiryDemo();
         // await PayOutRequestDemo.PayOutDemo();
-        // SignatureUtils.SignatureDemo();
+        SignatureUtils.SignatureDemo();
     }
 }

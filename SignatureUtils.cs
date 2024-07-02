@@ -1,5 +1,4 @@
-﻿using System.Security.AccessControl;
-
+﻿
 namespace gatewatApi;
 using System;
 using System.Security.Cryptography;
@@ -30,7 +29,7 @@ public class SignatureUtils
         return null;
     }
     
-    public static bool checkSha256ResSiganture(string content, string signed, string publicKeyStr, string encode)
+    public static bool checkSha256RsaSignature(string content, string signed, string publicKeyStr, string encode)
     {
         try
         {
@@ -50,42 +49,6 @@ public class SignatureUtils
         return false;
     }
     
-    
-    /**
-     * HmacSHA512 signature
-     */
-    public static string DoTransactionSign(string signData, string secret)
-    {
-        byte[] keyBytes = Encoding.UTF8.GetBytes(secret);
-        byte[] dataBytes = Encoding.UTF8.GetBytes(signData);
-
-        using (var hmac = new HMACSHA512(keyBytes))
-        {
-            byte[] hashBytes = hmac.ComputeHash(dataBytes);
-            return Convert.ToBase64String(hashBytes);
-        }
-    }
-    
-    public static Boolean CheckTransactionSign(string signData,string signature, string secret)
-    {
-        var doTransactionSign = DoTransactionSign(signData, secret);
-        return doTransactionSign == signature;
-    }
-    
-    
-    public  static string  SHA256ByteToHex(string requestBody)
-    {
-        using (SHA256Managed sha256 = new SHA256Managed())
-        {
-            byte[] computeHash = sha256.ComputeHash(Encoding.UTF8.GetBytes(requestBody));
-            StringBuilder stringBuilder = new StringBuilder();
-            foreach (byte b in computeHash)
-            {
-                stringBuilder.Append(b.ToString("x2"));
-            }
-            return stringBuilder.ToString().ToLower();
-        }
-    }
 
     public static string minify(Object requestBody)
     {
@@ -125,7 +88,7 @@ public class SignatureUtils
         string rsaSignature = sha256RsaSignature(signContent, privateKeyStr);
         Console.WriteLine("rsaSignature:" + rsaSignature);
 
-        bool checkResult = checkSha256ResSiganture(signContent, rsaSignature, publicKeyStr, "UTF-8");
+        bool checkResult = checkSha256RsaSignature(signContent, rsaSignature, publicKeyStr, "UTF-8");
         Console.WriteLine("check result:" + checkResult);
     }
   
