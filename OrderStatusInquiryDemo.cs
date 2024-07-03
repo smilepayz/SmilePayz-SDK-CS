@@ -20,8 +20,8 @@ public class OrderStatusInquiryDemo
         inquiryRequest.tradeType = "2";
         inquiryRequest.tradeNo = "112200182402261848252600";
         inquiryRequest.orderNo = "D_1708948105016";
-        string payinPathUrl = "https://gateway-test.smilepayz.com/v2.0/inquiry-status";
-        string payinPathTestUrl = "https://sandbox-gateway-test.smilepayz.com/v2.0/inquiry-status";
+        string payinPathUrl = "https://gateway.smilepayz.com/v2.0/inquiry-status";
+        string payinPathTestUrl = "https://sandbox-gateway.smilepayz.com/v2.0/inquiry-status";
         // 准备要发送的数据
         string  minify = Newtonsoft.Json.JsonConvert.SerializeObject(inquiryRequest);
         Console.WriteLine("minify:" + minify);

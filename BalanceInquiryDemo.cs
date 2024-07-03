@@ -21,8 +21,8 @@ public class BalanceInquiryDemo
         balanceInquiryRequest.balanceTypes = ["balance"];
         balanceInquiryRequest.partnerReferenceNo = Guid.NewGuid().ToString("N");
         
-        string payinPathUrl = "https://gateway-test.smilepayz.com/v2.0/balance-inquiry";
-        string payinPathTestUrl = "https://sandbox-gateway-test.smilepayz.com/v2.0/balance-inquiry";
+        string payinPathUrl = "https://gateway.smilepayz.com/v2.0/balance-inquiry";
+        string payinPathTestUrl = "https://sandbox-gateway.smilepayz.com/v2.0/balance-inquiry";
         // 准备要发送的数据
         string  minify = Newtonsoft.Json.JsonConvert.SerializeObject(balanceInquiryRequest);
         Console.WriteLine("minify:" + minify);

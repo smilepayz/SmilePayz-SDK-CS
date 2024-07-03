@@ -39,8 +39,8 @@ public class PayOutRequestDemo
         payOutRequest.additionalParam = additionalReq;
         payOutRequest.orderNo = Guid.NewGuid().ToString("N");
 
-        string payinPathUrl = "https://gateway-test.smilepayz.com/v2.0/disbursement/pay-out";
-        string payinPathTestUrl = "https://sandbox-gateway-test.smilepayz.com/v2.0/disbursement/pay-out";
+        string payinPathUrl = "https://gateway.smilepayz.com/v2.0/disbursement/pay-out";
+        string payinPathTestUrl = "https://sandbox-gateway.smilepayz.com/v2.0/disbursement/pay-out";
         // 准备要发送的数据
         string  minify = Newtonsoft.Json.JsonConvert.SerializeObject(payOutRequest);
         Console.WriteLine("minify:" + minify);
