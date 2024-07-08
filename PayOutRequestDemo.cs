@@ -10,15 +10,18 @@ public class PayOutRequestDemo
     public static async Task PayOutDemo()
     {
         // sandbox 
-        string requestPath =Constant.baseUrlSanbox + "/v2.0/disbursement/pay-out";
-        string merchantId = Constant.merchantIdSandBox;
-        string merchanteSerct = Constant.merchantSecretSandBox;
+        // string requestPath =Constant.baseUrlSanbox + "/v2.0/disbursement/pay-out";
+        // string merchantId = Constant.merchantIdSandBox;
+        // string merchanteSerct = Constant.merchantSecretSandBox;
         
         // prdoction
-        // string requestPath = Constant.baseUrl +"/v2.0/disbursement/pay-out";
-        // string merchantId = Constant.merchantId;
-        // string merchanteSerct = Constant.merchantSecret;
-        //
+        string requestPath = Constant.baseUrl +"/v2.0/disbursement/pay-out";
+        string merchantId = Constant.merchantId;
+        string merchanteSerct = Constant.merchantSecret;
+        
+        
+        string orderNo = merchantId.Replace("sandbox-", "S") + Guid.NewGuid().ToString("N");
+
         
         DateTime date = DateTime.Now;
         string timestamp = date.ToString("yyyy-MM-dd'T'HH:mm:sszzz");
@@ -42,11 +45,9 @@ public class PayOutRequestDemo
         payOutRequest.area = AreaEnum.INDIA.Code;
         payOutRequest.purpose = "for test";
         payOutRequest.additionalParam = additionalReq;
-        payOutRequest.orderNo = Guid.NewGuid().ToString("N");
+        payOutRequest.orderNo = orderNo.Substring(0,32);
 
-        string payinPathUrl = "https://gateway.smilepayz.com/";
-        string payinPathTestUrl = "https://sandbox-gateway.smilepayz.com/v2.0/disbursement/pay-out";
-        // 准备要发送的数据
+        // minify data 
         string  minify = Newtonsoft.Json.JsonConvert.SerializeObject(payOutRequest);
         Console.WriteLine("minify:" + minify);
 
@@ -56,7 +57,7 @@ public class PayOutRequestDemo
         var signature = SignatureUtils.sha256RsaSignature(signContent, Constant.privateKeyStr);
         using (HttpClient client = new HttpClient())
         {
-            // 添加自定义标头
+            // request headers 
             client.DefaultRequestHeaders.Add("ContentType", "application/json");
             client.DefaultRequestHeaders.Add("X-TIMESTAMP", timestamp);
             client.DefaultRequestHeaders.Add("X-SIGNATURE", signature);
@@ -65,21 +66,24 @@ public class PayOutRequestDemo
 
             Console.WriteLine("content:" + Newtonsoft.Json.JsonConvert.SerializeObject(content));
 
-            // 发起 POST 请求
+            // request post
             HttpResponseMessage response =
                 await client.PostAsync(requestPath, content);
 
-            // 检查响应是否成功
+            // is success ?
             if (response.IsSuccessStatusCode)
             {
-                // 读取响应内容
+                // read response body 
                 string responseBody = await response.Content.ReadAsStringAsync();
                 Console.WriteLine("Response Body:");
                 Console.WriteLine(responseBody);
             }
             else
             {
-                Console.WriteLine("Failed to get response. Status code: " + response.StatusCode);
+                // read response body 
+                string responseBody = await response.Content.ReadAsStringAsync();
+                Console.WriteLine("Response Body:");
+                Console.WriteLine(responseBody);
             }
         }
     }

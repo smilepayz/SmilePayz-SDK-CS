@@ -21,11 +21,11 @@ public class OrderStatusInquiryDemo
         Console.WriteLine("timestamp:" + timestamp);
 
         OrderStatusInquiryRequest inquiryRequest = new OrderStatusInquiryRequest();
-        inquiryRequest.tradeType = "1";
+        inquiryRequest.tradeType = Constant.tradeTypePayIn;
         // inquiryRequest.tradeNo = "T111200302403131706568283";
         inquiryRequest.orderNo = "T117200302403131706567635";
 
-        // 准备要发送的数据
+        // minify data
         string  minify = Newtonsoft.Json.JsonConvert.SerializeObject(inquiryRequest);
         Console.WriteLine("minify:" + minify);
 
@@ -35,7 +35,7 @@ public class OrderStatusInquiryDemo
         var signature = SignatureUtils.sha256RsaSignature(signContent, Constant.privateKeyStr);
         using (HttpClient client = new HttpClient())
         {
-            // 添加自定义标头
+            // request headers
             client.DefaultRequestHeaders.Add("ContentType", "application/json");
             client.DefaultRequestHeaders.Add("X-TIMESTAMP", timestamp);
             client.DefaultRequestHeaders.Add("X-SIGNATURE", signature);
@@ -44,21 +44,24 @@ public class OrderStatusInquiryDemo
 
             Console.WriteLine("content:" + Newtonsoft.Json.JsonConvert.SerializeObject(content));
 
-            // 发起 POST 请求
+            //send post request
             HttpResponseMessage response =
                 await client.PostAsync(requestPath, content);
 
-            // 检查响应是否成功
+            // is success ?
             if (response.IsSuccessStatusCode)
             {
-                // 读取响应内容
+                // read response body 
                 string responseBody = await response.Content.ReadAsStringAsync();
                 Console.WriteLine("Response Body:");
                 Console.WriteLine(responseBody);
             }
             else
             {
-                Console.WriteLine("Failed to get response. Status code: " + response.StatusCode);
+                // read response body 
+                string responseBody = await response.Content.ReadAsStringAsync();
+                Console.WriteLine("Response Body:");
+                Console.WriteLine(responseBody);
             }
         }
     }

@@ -26,9 +26,11 @@ public class PayInRequestDemo
         string timestamp = date.ToString("yyyy-MM-dd'T'HH:mm:sszzz");
         Console.WriteLine("timestamp:" + timestamp);
 
+        string orderNo = merchantId.Replace("sandbox-", "S") + Guid.NewGuid().ToString("N");
+        
         MoneyRequest moneyRequest = new MoneyRequest();
         moneyRequest.amount = 10000;
-        moneyRequest.currency = CurrencyEnum.IDR.ToString();
+        moneyRequest.currency = CurrencyEnum.INR.ToString();
 
         MerchantRequest merchantRequest = new MerchantRequest();
         merchantRequest.merchantId = merchantId;
@@ -36,15 +38,15 @@ public class PayInRequestDemo
         PayInRequest payInRequest = new PayInRequest();
         payInRequest.merchant = merchantRequest;
         payInRequest.money = moneyRequest;
-        payInRequest.paymentMethod = "W_DANA";
-        payInRequest.area = AreaEnum.INDONESIA.Code;
+        payInRequest.paymentMethod = "P2P";
+        payInRequest.area = AreaEnum.INDIA.Code;
         payInRequest.purpose = "for test";
 
-        payInRequest.orderNo = Guid.NewGuid().ToString("N");
+        payInRequest.orderNo = orderNo.Substring(0,32);
         
         Console.WriteLine("request path:" + requestPath);
 
-        // 准备要发送的数据
+        // minifi data
         string  minify = Newtonsoft.Json.JsonConvert.SerializeObject(payInRequest);
         Console.WriteLine("minify:" + minify);
 
@@ -53,7 +55,7 @@ public class PayInRequestDemo
         var signature = SignatureUtils.sha256RsaSignature(signContent, Constant.privateKeyStr);
         using (HttpClient client = new HttpClient())
         {
-            // 添加自定义标头
+            // request headers
             client.DefaultRequestHeaders.Add("ContentType", "application/json");
             client.DefaultRequestHeaders.Add("X-TIMESTAMP", timestamp);
             client.DefaultRequestHeaders.Add("X-SIGNATURE", signature);
@@ -62,21 +64,24 @@ public class PayInRequestDemo
 
             Console.WriteLine("content:" + Newtonsoft.Json.JsonConvert.SerializeObject(content));
 
-            // 发起 POST 请求
+            // post request 
             HttpResponseMessage response =
                 await client.PostAsync(requestPath, content);
 
-            // 检查响应是否成功
+            //  is success code ?
             if (response.IsSuccessStatusCode)
             {
-                // 读取响应内容
+                // read response body 
                 string responseBody = await response.Content.ReadAsStringAsync();
                 Console.WriteLine("Response Body:");
                 Console.WriteLine(responseBody);
             }
             else
             {
-                Console.WriteLine("Failed to get response. Status code: " + response.StatusCode);
+                // read response body 
+                string responseBody = await response.Content.ReadAsStringAsync();
+                Console.WriteLine("Response Body:");
+                Console.WriteLine(responseBody);
             }
         }
     }
