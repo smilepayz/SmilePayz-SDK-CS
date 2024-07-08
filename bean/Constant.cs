@@ -6,8 +6,8 @@ public class Constant
     public const string publicKeyStr = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAty25nz4YxlyfmujVSskVhHwqbCn5fVBZzEZbTaLCb/u6nejlCt7e0PHyl/K8biQXlyy1qzmb46BpT98m774VEhih/gS3DdZNniW3Crk4b17ykL3e6V6JWPdYJBfFe/BV/kynoGbqW3o4tF1BlwgTckoaHGDOgr2opX9CMr+PXXJLSZouHawSn4I+ZeB1GPU2g7gmTq4bxWX2WcQStc5Ju9pNGS36kxphvDtrbAcp3Qkx9mjy0/aHUfPzuKn6Exvr1fR4ryCijiNodJGX0ATqlg+P6H8LvTzaEUcxoM30aRdxoZymt20VUqQlLgbR36LUHxcW42g5NLNyuQYUBOx8cwIDAQAB";
 
 
-    public const string baseUrlSanbox = "https://sandbox-gateway-test.smilepayz.com";
-    public const string baseUrl = "https://gateway-test.smilepayz.com";
+    public const string baseUrlSanbox = "https://sandbox-gateway.smilepayz.com";
+    public const string baseUrl = "https://gateway.smilepayz.com";
     public const string merchantId = "20019";
     public const string merchantIdSandBox = "sandbox-20019";
     public const string merchantSecret = "95b57c46b8c2e068982be23fb669a80612cad68e6ce6ba4f5af9ec20d23bb274";
