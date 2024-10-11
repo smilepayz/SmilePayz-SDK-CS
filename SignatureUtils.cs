@@ -19,8 +19,8 @@ public class SignatureUtils
 
             byte[] dataToSign = Encoding.UTF8.GetBytes(stringToSign);
             byte[] signatureBytes = rsa.SignData(dataToSign, CryptoConfig.MapNameToOID("SHA256"));
-
-            return Convert.ToBase64String(signatureBytes);
+            var base64String = Convert.ToBase64String(signatureBytes);
+            return base64String;
         }
         catch (Exception e)
         {

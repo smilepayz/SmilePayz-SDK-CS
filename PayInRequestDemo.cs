@@ -28,18 +28,20 @@ public class PayInRequestDemo
 
         string orderNo = merchantId.Replace("sandbox-", "S") + Guid.NewGuid().ToString("N");
         
+        //fixme demo for INDONESIA  ,replace currency to you what need
         MoneyRequest moneyRequest = new MoneyRequest();
         moneyRequest.amount = 10000;
-        moneyRequest.currency = CurrencyEnum.INR.ToString();
+        moneyRequest.currency = CurrencyEnum.IDR.ToString();
 
         MerchantRequest merchantRequest = new MerchantRequest();
         merchantRequest.merchantId = merchantId;
 
+        //fixme demo for INDONESIA  ,replace paymentMethod , area to you what need
         PayInRequest payInRequest = new PayInRequest();
         payInRequest.merchant = merchantRequest;
         payInRequest.money = moneyRequest;
-        payInRequest.paymentMethod = "P2P";
-        payInRequest.area = AreaEnum.INDIA.Code;
+        payInRequest.paymentMethod = "QRIS";
+        payInRequest.area = AreaEnum.INDONESIA.Code;
         payInRequest.purpose = "for test";
 
         payInRequest.orderNo = orderNo.Substring(0,32);
