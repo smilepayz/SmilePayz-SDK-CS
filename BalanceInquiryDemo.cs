@@ -22,7 +22,7 @@ public class BalanceInquiryDemo
         Console.WriteLine("timestamp:" + timestamp);
 
         BalanceInquiryRequest balanceInquiryRequest = new BalanceInquiryRequest();
-        balanceInquiryRequest.accountNo = "21220030202403071031";
+        balanceInquiryRequest.accountNo = "merchant account no";
         balanceInquiryRequest.balanceTypes = ["BALANCE"];
         
         // minify data

@@ -22,8 +22,8 @@ public class OrderStatusInquiryDemo
 
         OrderStatusInquiryRequest inquiryRequest = new OrderStatusInquiryRequest();
         inquiryRequest.tradeType = Constant.tradeTypePayIn;
-        // inquiryRequest.tradeNo = "T111200302403131706568283";
-        inquiryRequest.orderNo = "T117200302403131706567635";
+        inquiryRequest.tradeNo = "platform trade no";
+        inquiryRequest.orderNo = "merchant order no";
 
         // minify data
         string  minify = Newtonsoft.Json.JsonConvert.SerializeObject(inquiryRequest);

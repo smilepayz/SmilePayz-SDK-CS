@@ -5,5 +5,6 @@ public enum CurrencyEnum
     IDR,
     THB,
     INR,
-    BRL
+    BRL,
+    MXN
 }

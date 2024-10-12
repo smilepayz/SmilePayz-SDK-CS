@@ -14,8 +14,9 @@ public class Constant
     public const string merchantSecret = "merchant secret";
     public const string merchantSecretSandBox = "merchant sercret insandbox";
     
-    
+    //for pay-in order
     public const int tradeTypePayIn = 1;
+    //for pay-out order
     public const int tradeTypePayOut = 2;
 
 }
